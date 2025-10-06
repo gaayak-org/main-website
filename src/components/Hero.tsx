@@ -5,8 +5,9 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <h1>
-          gaayak.org — Making Indian Singing Education{' '}
+        <div className={styles.brand}>gaayak.org</div>
+        <h1 className={styles.tagline}>
+          Making Indian Singing Education{' '}
           <span className="accent">Clear, Balanced, and Accessible</span>
         </h1>
         <h3 className={styles.subtitle}>
