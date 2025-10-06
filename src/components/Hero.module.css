@@ -1,0 +1,25 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem;
+}
+
+.content {
+  max-width: 800px;
+}
+
+.subtitle {
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  color: #b0b0b0;
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+}
