@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Problem from '@/components/Problem'
 import Vision from '@/components/Vision'
@@ -11,12 +12,25 @@ export default function Home() {
   return (
     <main className="page-container">
       <BackgroundAnimation />
-      <Hero />
-      <Problem />
-      <Vision />
-      <Gap />
-      <Aim />
-      <FinalCTA />
+      <Header />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="problem">
+        <Problem />
+      </div>
+      <div id="vision">
+        <Vision />
+      </div>
+      <div id="gap">
+        <Gap />
+      </div>
+      <div id="aim">
+        <Aim />
+      </div>
+      <div id="signup">
+        <FinalCTA />
+      </div>
       <Footer />
     </main>
   )

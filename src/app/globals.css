@@ -88,17 +88,17 @@ li::before {
   content: '—';
   position: absolute;
   left: 0;
-  color: #d0ff00;
+  color: #88aa77;
   font-weight: 600;
 }
 
 /* Accent Colors */
 .accent {
-  color: #d0ff00;
+  color: #88aa77;
 }
 
 .accent-bg {
-  background-color: #d0ff00;
+  background-color: #88aa77;
   color: #0a0a0a;
 }
 
@@ -112,7 +112,7 @@ button,
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: #d0ff00;
+  background-color: #88aa77;
   color: #0a0a0a;
   font-family: inherit;
 }
@@ -150,7 +150,7 @@ input[type="email"] {
 input[type="text"]:focus,
 input[type="email"]:focus {
   outline: none;
-  border-color: #d0ff00;
+  border-color: #88aa77;
   box-shadow: 0 0 0 3px rgba(208, 255, 0, 0.1);
 }
 
@@ -168,7 +168,7 @@ input[type="email"]::placeholder {
 
 /* Links */
 a {
-  color: #d0ff00;
+  color: #88aa77;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
