@@ -1,0 +1,21 @@
+.cta {
+  text-align: center;
+  padding: 8rem 2rem;
+}
+
+.description {
+  text-align: center;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  margin-bottom: 2rem;
+  color: #b0b0b0;
+}
+
+.secondary {
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 6rem 1.5rem;
+  }
+}
