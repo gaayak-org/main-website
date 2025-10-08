@@ -5,13 +5,13 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <div className={styles.brand}>gaayak.org</div>
         <h1 className={styles.tagline}>
-          Making Indian Singing Education{' '}
           <span className="accent">Clear, Balanced, and Accessible</span>
+          <br />
+          Indian Singing Education
         </h1>
         <h3 className={styles.subtitle}>
-          Because learning to sing shouldn't mean memorizing without understanding.
+          Because learning to sing shouldn’t mean lessons that reward memorization over usable skill, or leave you without clear feedback.
         </h3>
         <EmailForm variant="hero" />
       </div>
