@@ -1,6 +1,7 @@
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import BrandingThemeProvider from "@/theme/BrandingThemeProvider";
+import { DEFAULT_COLOR_MODE } from "@/theme/defaultColorMode";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import type { Metadata } from "next";
@@ -50,7 +51,7 @@ export default function RootLayout({
       </head>
       <body>
         <GoogleTagManager />
-        <InitColorSchemeScript defaultMode="system" attribute="data-mui-color-scheme" />
+        <InitColorSchemeScript defaultMode={DEFAULT_COLOR_MODE} attribute="data-mui-color-scheme" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <BrandingThemeProvider>
             <PageViewTracker />
