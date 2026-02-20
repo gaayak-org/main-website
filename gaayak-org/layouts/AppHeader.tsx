@@ -3,7 +3,7 @@
 import { CCLogo } from "@/components/CCLogo";
 import HeaderNavBar from "@/components/header/HeaderNavBar";
 import HeaderNavDropdown from "@/components/header/HeaderNavDropdown";
-import ThemeModeToggle from "@/components/header/ThemeModeToggle";
+// import ThemeModeToggle from "@/components/header/ThemeModeToggle";
 import { Box, Container, Stack } from "@mui/material";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { alpha, styled } from "@mui/material/styles";
@@ -46,7 +46,8 @@ export default function AppHeader({ isHomePage }: AppHeaderProps) {
         </Box>
         <Box sx={{ ml: 'auto' }} />
         <Stack direction="row" spacing={1}>
-          <ThemeModeToggle />
+          {/* Theme toggle commented out – dark mode only for now */}
+          {/* <ThemeModeToggle /> */}
         </Stack>
         <Box sx={{ display: { md: 'none' }, ml: 1 }}>
           <HeaderNavDropdown />

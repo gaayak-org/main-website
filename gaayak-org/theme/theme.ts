@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 import { components } from './components';
 import { colorSchemes, shadows, shape, typography } from './themePrimitives';
 
-export const DEFAULT_COLOR_MODE: 'light' | 'dark' | 'system' = 'system';
+export { DEFAULT_COLOR_MODE } from './defaultColorMode';
 
 export const theme = createTheme({
   cssVariables: {
