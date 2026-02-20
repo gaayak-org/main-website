@@ -19,17 +19,23 @@ export default function Hero() {
       linearGradient
       left={
         <Box sx={{ textAlign: { xs: 'center', md: 'left' }, maxWidth: 500 }}>
-          <Typography variant="h1" sx={{ mb: 1 }}>
-            <GradientText>Your Career</GradientText> <br />
-            Growth Companion
+          <Typography
+            variant="h1"
+            sx={{ mb: 1, fontSize: { xs: '2.5rem', md: '3rem' } }}
+          >
+            <GradientText>Your gateway to mastering Indian singing</GradientText>
+            {' — and beyond.'}
           </Typography>
           <Typography sx={{ color: 'text.secondary', mb: 3 }}>
-            An AI Career Co-Pilot that understands who you are, where you want to go, and how to get you there.
+            gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a hub for budding singers, producers, videographers, and songwriters to learn, connect, and collaborate on projects.
           </Typography>
           <GetStartedButton
-            primaryLabel="Get Started"
+            primaryLabel="Claim your spot"
             primaryUrl="/contact-us"
           />
+          <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5 }}>
+            First 500 members enjoy 6 months free.
+          </Typography>
         </Box>
       }
       rightSx={{
