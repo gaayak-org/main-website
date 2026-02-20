@@ -17,7 +17,7 @@ const Navigation = styled('nav')(({ theme }) => [
     '& li': {
       ...theme.typography.body2,
       color: (theme.vars || theme).palette.text.secondary,
-      fontWeight: theme.typography.fontWeightSemiBold,
+      fontWeight: 600,
       '& > a, & > button': {
         display: 'inline-block',
         color: 'inherit',
@@ -36,17 +36,17 @@ const Navigation = styled('nav')(({ theme }) => [
           },
         },
         '&:focus-visible': {
-          outline: `3px solid ${alpha(theme.palette.primary[500], 0.5)}`,
+          outline: `3px solid ${alpha(theme.palette.primary.main, 0.5)}`,
           outlineOffset: '2px',
         },
       },
     },
   },
-  theme.applyDarkStyles({
+  theme.applyStyles('dark', {
     '& li': {
       '& > a, & > button': {
         '&:hover': {
-          color: (theme.vars || theme).palette.primary[50],
+          color: (theme.vars || theme).palette.primary.light,
           backgroundColor: alpha(theme.palette.primaryDark[700], 0.8),
           borderColor: (theme.vars || theme).palette.divider,
         },

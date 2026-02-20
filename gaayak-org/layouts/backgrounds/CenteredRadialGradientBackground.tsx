@@ -16,10 +16,10 @@ export const CenteredRadialGradientBackground = styled(Box)(({ theme }) => ({
     position: 'absolute',
     zIndex: -1,
     inset: 0,
-    backgroundImage: `radial-gradient(ellipse at 50% 50%, ${(theme.vars || theme).palette.primary[50]}, ${(theme.vars || theme).palette.background.default})`,
+    backgroundImage: `radial-gradient(ellipse at 50% 50%, ${(theme.vars || theme).palette.primary.light}, ${(theme.vars || theme).palette.background.default})`,
     backgroundRepeat: 'no-repeat',
-    ...theme.applyDarkStyles({
-      backgroundImage: `radial-gradient(ellipse at 50% 50%, ${(theme.vars || theme).palette.primary[900]}, ${(theme.vars || theme).palette.primaryDark[900]})`,
+    ...theme.applyStyles('dark',{
+      backgroundImage: `radial-gradient(ellipse at 50% 50%, ${(theme.vars || theme).palette.primary.dark}, ${(theme.vars || theme).palette.primaryDark[900]})`,
     }),
   },
 }));
