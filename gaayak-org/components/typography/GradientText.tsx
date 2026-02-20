@@ -20,7 +20,7 @@ const GradientText = styled('span')<{
     {
       props: {},
       style: {
-        background: `linear-gradient(90deg, ${(theme.vars || theme).palette.primary[400]} 5%, ${(theme.vars || theme).palette.primary.main} 90%)`,
+        background: `linear-gradient(90deg, ${(theme.vars || theme).palette.primary.light} 5%, ${(theme.vars || theme).palette.primary.main} 90%)`,
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',

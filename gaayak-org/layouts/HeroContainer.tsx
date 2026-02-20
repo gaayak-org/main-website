@@ -41,16 +41,16 @@ export default function HeroContainer(props: HeroContainerProps) {
           borderColor: (theme.vars || theme).palette.divider,
           ...(linearGradient && {
             background: `radial-gradient(farthest-corner circle at 0% 0%, ${(theme.vars || theme).palette.grey[50]
-              } 0%, ${(theme.vars || theme).palette.primary[50]} 100%)`,
+              } 0%, ${(theme.vars || theme).palette.primary.light} 100%)`,
           }),
         }),
         (theme) =>
-          theme.applyDarkStyles({
+          theme.applyStyles('dark',{
             background: (theme.vars || theme).palette.primaryDark[900],
             borderColor: (theme.vars || theme).palette.primaryDark[700],
             ...(linearGradient && {
               background: `radial-gradient(farthest-corner circle at 0% 0%, ${alpha(
-                theme.palette.primary[900],
+                theme.palette.primary.dark,
                 0.2,
               )} 0%, ${(theme.vars || theme).palette.primaryDark[900]} 100%)`,
             }),

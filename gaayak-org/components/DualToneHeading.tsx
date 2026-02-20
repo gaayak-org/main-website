@@ -39,11 +39,11 @@ export default function TwoToneHeading({
         sx={(theme) => ({
           ...fontSize,
           fontWeight: 700,
-          color: theme.palette.primary[900],
+          color: theme.palette.primary.dark,
           display: display,
           pt: paddingTop,
           ...theme.applyStyles('dark', {
-            color: theme.palette.primary[100],
+            color: theme.palette.primary.light,
           }),
         })}
       >

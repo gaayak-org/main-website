@@ -7,10 +7,10 @@ export const StyledHeroBox = styled(Box)(({ theme }) => ({
   backgroundRepeat: 'no-repeat',
 
   backgroundImage:
-    `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.palette.primary[100]}, transparent)`,
+    `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.palette.primary.light}, transparent)`,
   ...theme.applyStyles('dark', {
     backgroundImage:
-      `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.palette.primary[700]}, transparent)`,
+      `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.palette.primary.dark}, transparent)`,
   }),
 }));
 
