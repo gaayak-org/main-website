@@ -1,0 +1,103 @@
+'use client';
+
+import * as React from 'react';
+import Box, { BoxProps } from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import { alpha } from '@mui/material/styles';
+
+interface HeroContainerProps {
+  left: React.ReactElement<unknown>;
+  linearGradient?: boolean;
+  right: React.ReactElement<unknown>;
+  rightSx?: BoxProps['sx'];
+}
+
+export default function HeroContainer(props: HeroContainerProps) {
+  const {
+    left,
+    linearGradient,
+    right,
+    rightSx,
+  } = props;
+  const frame = React.useRef<HTMLDivElement>(null);
+
+  const renderRightWrapper = (sx?: BoxProps['sx']) => (
+    <Box
+      ref={frame}
+      aria-hidden="true"
+      sx={[
+        (theme) => ({
+          minWidth: '50vw',
+          minHeight: { xs: 'auto', sm: 500 },
+          height: 'calc(100vh - 120px)',
+          maxHeight: { md: 700, xl: 850 },
+          borderBottomLeftRadius: 12,
+          transition: 'max-height 0.3s',
+          position: 'relative',
+          overflow: 'hidden',
+          borderLeft: '1px solid',
+          borderBottom: '1px solid',
+          borderColor: (theme.vars || theme).palette.divider,
+          ...(linearGradient && {
+            background: `radial-gradient(farthest-corner circle at 0% 0%, ${(theme.vars || theme).palette.grey[50]
+              } 0%, ${(theme.vars || theme).palette.primary[50]} 100%)`,
+          }),
+        }),
+        (theme) =>
+          theme.applyDarkStyles({
+            background: (theme.vars || theme).palette.primaryDark[900],
+            borderColor: (theme.vars || theme).palette.primaryDark[700],
+            ...(linearGradient && {
+              background: `radial-gradient(farthest-corner circle at 0% 0%, ${alpha(
+                theme.palette.primary[900],
+                0.2,
+              )} 0%, ${(theme.vars || theme).palette.primaryDark[900]} 100%)`,
+            }),
+          }),
+        ...(Array.isArray(sx) ? sx : [sx]),
+        ...(Array.isArray(rightSx) ? rightSx : [rightSx]),
+      ]}
+    >
+      {right}
+    </Box>
+  );
+
+  return (
+    <Box sx={{ overflow: 'hidden' }}>
+      <Container
+        sx={{
+          pt: { xs: 8, md: 0 },
+          minHeight: { xs: 'auto', md: 500 },
+          height: { md: 'calc(100vh - 120px)' },
+          maxHeight: { md: 700, xl: 850 },
+          transition: '0.3s',
+        }}
+      >
+        <Grid
+          container
+          sx={{ alignItems: 'center', flexWrap: 'nowrap', height: '100%', mx: 'auto' }}
+        >
+          <Grid
+            sx={{ m: 'auto' }}
+            size={{
+              md: 7,
+              lg: 6,
+            }}
+          >
+            {left}
+          </Grid>
+          <Grid
+            sx={{ maxHeight: '100%', display: { xs: 'none', md: 'initial' } }}
+            size={{
+              md: 5,
+              lg: 6,
+            }}
+          >
+            {renderRightWrapper()}
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
