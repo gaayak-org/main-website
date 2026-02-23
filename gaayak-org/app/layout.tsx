@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     description: "We search 1000+ courses across platforms to find the one that fits your goals so you don’t waste time or money.",
     images: [
       {
-        url: '/images/og-image-light.jpg',
+        url: '/images/logos/gaayak-logo-v0.png',
         width: 1200,
         height: 630,
-        alt: 'CourseCorrect - Find your perfect course with our trusted AI',
+        alt: 'gaayak.org',
       },
     ],
   },
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CourseCorrect | Your Upskilling Partner',
     description: "We search 1000+ courses across platforms to find the one that fits your goals so you don’t waste time or money.",
-    images: ['/images/og-image-light.jpg'],
+    images: ['/images/logos/gaayak-logo-v0.png'],
     creator: '@coursecorrect',
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/apple-icon.png',
+    icon: '/images/logos/gaayak-logo-v0.png',
+    apple: '/images/logos/gaayak-logo-v0.png',
   },
 };
 

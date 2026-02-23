@@ -29,13 +29,14 @@ export default function Hero() {
           <Typography sx={{ color: 'text.secondary', mb: 3 }}>
             gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a hub for budding singers, producers, videographers, and songwriters to learn, connect, and collaborate on projects.
           </Typography>
-          <GetStartedButton
+          {/* Contact Us CTA commented out for now */}
+          {/* <GetStartedButton
             primaryLabel="Claim your spot"
             primaryUrl="/contact-us"
           />
           <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5 }}>
             First 500 members enjoy 6 months free.
-          </Typography>
+          </Typography> */}
         </Box>
       }
       rightSx={{

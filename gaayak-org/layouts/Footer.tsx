@@ -1,6 +1,6 @@
 "use client";
 
-import { socialLinksOrdered } from "@/config/content/social";
+// import { socialLinksOrdered } from "@/config/content/social"; // commented out – social links are CourseCorrect
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
@@ -86,7 +86,8 @@ export default function Footer() {
             </Box>
           </Box>
 
-          <Box
+          {/* Terms, Privacy, Contact Us commented out for now */}
+          {/* <Box
             sx={{
               display: { xs: "none", sm: "flex" },
               flexDirection: "column",
@@ -96,9 +97,6 @@ export default function Footer() {
             <Typography variant="body2" sx={{ fontWeight: "medium" }}>
               Company
             </Typography>
-            <Link color="text.secondary" variant="body2" href="/about-us">
-              About us
-            </Link>
             <Link color="text.secondary" variant="body2" href="/contact-us">
               Contact
             </Link>
@@ -120,7 +118,7 @@ export default function Footer() {
             <Link color="text.secondary" variant="body2" href="/privacy-policy">
               Privacy
             </Link>
-          </Box>
+          </Box> */}
 
         </Box>
 
@@ -136,7 +134,7 @@ export default function Footer() {
           }}
         >
           <div>
-            <Link color="text.secondary" variant="body2" href="/privacy-policy">
+            {/* <Link color="text.secondary" variant="body2" href="/privacy-policy">
               Privacy Policy
             </Link>
             <Typography sx={{ display: "inline", mx: 0.5, opacity: 0.5 }}>
@@ -144,10 +142,11 @@ export default function Footer() {
             </Typography>
             <Link color="text.secondary" variant="body2" href="/terms">
               Terms of Service
-            </Link>
+            </Link> */}
             <Copyright />
           </div>
-          <Stack
+          {/* Social media links (CourseCorrect) commented out for now */}
+          {/* <Stack
             direction="row"
             spacing={1}
             useFlexGap
@@ -167,7 +166,7 @@ export default function Footer() {
                 {social.icon}
               </IconButton>
             ))}
-          </Stack>
+          </Stack> */}
         </Box>
       </Container>
     </StyledBox>
