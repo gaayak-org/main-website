@@ -40,7 +40,7 @@ export default function AppHeader({ isHomePage }: AppHeaderProps) {
         }}
       />
       <Container sx={{ display: 'flex', alignItems: 'center', minHeight: HEIGHT }}>
-        <CCLogo sx={{ height: 32, mr: 1 }} />
+        <CCLogo sx={{ height: 54, mr: 1 }} />
         <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
           <HeaderNavBar />
         </Box>
