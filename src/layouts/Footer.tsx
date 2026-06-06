@@ -3,12 +3,9 @@
 // import { socialLinksOrdered } from "@/config/content/social"; // commented out – social links are CourseCorrect
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
 import { alpha, styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import CCLogo from "../components/CCLogo";
 
 const StyledBox = styled(Box)(({ theme }) => [
   {
@@ -27,7 +24,7 @@ function Copyright() {
     <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
       {"Copyright © "}
       <Link color="text.secondary" href="/">
-        CourseCorrect
+        gaayak.org
       </Link>
       &nbsp;
       {new Date().getFullYear()}
@@ -67,23 +64,7 @@ export default function Footer() {
               minWidth: { xs: "100%", sm: "60%" },
             }}
           >
-            <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-              <CCLogo
-                sx={{
-                  display: "flex",
-                  height: 65,
-                  width: "auto",
-                  mr: 1,
-                }}
-              />
 
-              <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-                At CourseCorrect, we&apos;re on a mission to&nbsp;
-                <Typography component={"span"} sx={{ color: "text.primary" }}>simplify course discovery for ambitious learners</Typography>
-                &nbsp;like you! With our comprehensive aggregation of global courses and intuitive AI
-                guidance, finding your next course is a breeze!
-              </Typography>
-            </Box>
           </Box>
 
           {/* Terms, Privacy, Contact Us commented out for now */}

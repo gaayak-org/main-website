@@ -7,16 +7,16 @@ import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CourseCorrect | Your Upskilling Partner",
-  description: "We search 1000+ courses across platforms to find the one that fits your goals so you don’t waste time or money.",
-  metadataBase: new URL('https://coursecorrect.fyi'),
+  title: "gaayak.org | Where singers and creators grow together",
+  description: "Where singers and creators grow together",
+  metadataBase: new URL('https://gaayak.org'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://coursecorrect.fyi',
-    siteName: 'coursecorrect.fyi',
-    title: 'CourseCorrect | Your Upskilling Partner',
-    description: "We search 1000+ courses across platforms to find the one that fits your goals so you don’t waste time or money.",
+    url: 'https://gaayak.org',
+    siteName: 'gaayak.org',
+    title: 'gaayak.org | Where singers and creators grow together',
+    description: "Where singers and creators grow together",
     images: [
       {
         url: '/images/logos/gaayak-logo-v0.png',
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CourseCorrect | Your Upskilling Partner',
-    description: "We search 1000+ courses across platforms to find the one that fits your goals so you don’t waste time or money.",
+    title: 'gaayak.org | Where singers and creators grow together',
+    description: "Where singers and creators grow together",
     images: ['/images/logos/gaayak-logo-v0.png'],
-    creator: '@coursecorrect',
+    creator: '@gaayak.org',
   },
   icons: {
     icon: '/images/logos/gaayak-logo-v0.png',
