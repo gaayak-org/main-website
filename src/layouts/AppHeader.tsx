@@ -1,6 +1,6 @@
 'use client';
 
-import { CCLogo } from "@/components/CCLogo";
+import { AppLogo } from "@/components/AppLogo";
 import HeaderNavBar from "@/components/header/HeaderNavBar";
 import HeaderNavDropdown from "@/components/header/HeaderNavDropdown";
 // import ThemeModeToggle from "@/components/header/ThemeModeToggle";
@@ -40,7 +40,7 @@ export default function AppHeader({ isHomePage }: AppHeaderProps) {
         }}
       />
       <Container sx={{ display: 'flex', alignItems: 'center', minHeight: HEIGHT }}>
-        <CCLogo sx={{ height: 54, mr: 1 }} />
+        <AppLogo sx={{ height: 54, mr: 1 }} />
         <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
           <HeaderNavBar />
         </Box>

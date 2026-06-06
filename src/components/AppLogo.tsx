@@ -6,14 +6,14 @@ import Link from "next/link";
 
 const GAAYAK_LOGO_SRC = "/images/logos/gaayak-logo-v0.png";
 
-interface CCLogoProps {
+interface AppLogoProps {
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx?: SxProps<Theme>;
 }
 
-export const CCLogo = ({ sx }: CCLogoProps) => {
+export const AppLogo = ({ sx }: AppLogoProps) => {
   return (
     <Box
       component={Link}
@@ -35,4 +35,4 @@ export const CCLogo = ({ sx }: CCLogoProps) => {
   );
 };
 
-export default CCLogo;
+export default AppLogo;
