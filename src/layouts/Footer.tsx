@@ -3,7 +3,6 @@
 // import { socialLinksOrdered } from "@/config/content/social"; // commented out – social links are CourseCorrect
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import { alpha, styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
@@ -22,18 +21,14 @@ const StyledBox = styled(Box)(({ theme }) => [
 function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
-      {"Copyright © "}
-      <Link color="text.secondary" href="/">
-        gaayak.org
-      </Link>
-      &nbsp;
+      {"© "}
       {new Date().getFullYear()}
+      {" gaayak.org. All rights reserved."}
     </Typography>
   );
 }
 
 export default function Footer() {
-
   return (
     <StyledBox>
       <Container
@@ -43,112 +38,24 @@ export default function Footer() {
           alignItems: "center",
           gap: { xs: 4, sm: 8 },
           py: { xs: 5, sm: 7 },
-          textAlign: { sm: "center", md: "left" },
+          textAlign: "center",
         }}
       >
-        {/* upper */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            width: "100%",
-            gap: { xs: 4, sm: 8 },
-            justifyContent: "space-between",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 4,
-              minWidth: { xs: "100%", sm: "60%" },
-            }}
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 1, alignItems: "center" }}>
+          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            Made with love in Toronto
+          </Typography>
+          {/* <Link
+            href="mailto:hello@gaayak.org"
+            color="text.secondary"
+            variant="body2"
+            sx={{ textDecoration: "underline" }}
           >
-
-          </Box>
-
-          {/* Terms, Privacy, Contact Us commented out for now */}
-          {/* <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
-              Company
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="/contact-us">
-              Contact
-            </Link>
-          </Box>
-
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
-              Legal
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="/terms">
-              Terms
-            </Link>
-            <Link color="text.secondary" variant="body2" href="/privacy-policy">
-              Privacy
-            </Link>
-          </Box> */}
-
+            hello@gaayak.org
+          </Link> */}
         </Box>
 
-        {/* lower */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            pt: { xs: 4, sm: 8 },
-            width: "100%",
-            borderTop: "1px solid",
-            borderColor: "divider",
-          }}
-        >
-          <div>
-            {/* <Link color="text.secondary" variant="body2" href="/privacy-policy">
-              Privacy Policy
-            </Link>
-            <Typography sx={{ display: "inline", mx: 0.5, opacity: 0.5 }}>
-              &nbsp;•&nbsp;
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="/terms">
-              Terms of Service
-            </Link> */}
-            <Copyright />
-          </div>
-          {/* Social media links (CourseCorrect) commented out for now */}
-          {/* <Stack
-            direction="row"
-            spacing={1}
-            useFlexGap
-            sx={{ justifyContent: "left", color: "text.secondary" }}
-          >
-            {socialLinksOrdered.map((social, index) => (
-              <IconButton
-                key={index}
-                color="inherit"
-                size="small"
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                sx={{ alignSelf: "center" }}
-              >
-                {social.icon}
-              </IconButton>
-            ))}
-          </Stack> */}
-        </Box>
+        <Copyright />
       </Container>
     </StyledBox>
   );
