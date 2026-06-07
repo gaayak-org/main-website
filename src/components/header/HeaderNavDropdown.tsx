@@ -31,7 +31,7 @@ const Anchor = styled('a')<{ component?: React.ElementType; noLinkStyle?: boolea
         },
       },
     },
-    theme.applyStyles('dark',{
+    theme.applyStyles('dark', {
       color: '#fff',
       '&:hover, &:focus-visible': {
         backgroundColor: (theme.vars || theme).palette.primaryDark[700],
@@ -56,13 +56,14 @@ export default function HeaderNavDropdown() {
   return (
     <React.Fragment>
       <IconButton
-        color="primary"
+        color="inherit"
         aria-label="Menu"
         ref={hambugerRef}
         disableRipple
         onClick={() => setOpen((value) => !value)}
         sx={{
           position: 'relative',
+          color: 'text.primary',
           '& rect': {
             transformOrigin: 'center',
             transition: '0.2s',
@@ -94,7 +95,7 @@ export default function HeaderNavDropdown() {
             left: 0,
             right: 0,
             boxShadow: `0px 16px 20px rgba(170, 180, 190, 0.3)`,
-            ...theme.applyStyles('dark',{
+            ...theme.applyStyles('dark', {
               boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.8)',
             }),
           })}
@@ -112,7 +113,7 @@ export default function HeaderNavDropdown() {
                 '& ul': {
                   borderLeft: '1px solid',
                   borderColor: 'grey.100',
-                  ...theme.applyStyles('dark',{
+                  ...theme.applyStyles('dark', {
                     borderColor: 'primaryDark.700',
                   }),
                   pl: 1,
