@@ -1,34 +1,77 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import GoogleTagManager from "@/components/analytics/GoogleTagManager";
+import PageViewTracker from "@/components/analytics/PageViewTracker";
+import AppHeader from "@/layouts/AppHeader";
+import Footer from "@/layouts/Footer";
+import BrandingThemeProvider from "@/theme/BrandingThemeProvider";
+import { DEFAULT_COLOR_MODE } from "@/theme/defaultColorMode";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import Container from '@mui/material/Container';
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'gaayak.org — Making Indian Singing Education Clear, Balanced, and Accessible',
-  description: 'Because learning to sing shouldn\'t mean memorizing without understanding. Join us as we build a structured, balanced approach to Indian singing education.',
-  keywords: ['Indian singing', 'music education', 'singing lessons', 'Hindi music', 'vocal training'],
-  authors: [{ name: 'gaayak.org' }],
+  title: "gaayak.org | Where singers and creators grow together",
+  description: "Where singers and creators grow together",
+  metadataBase: new URL('https://gaayak.org'),
   openGraph: {
-    title: 'gaayak.org — Making Indian Singing Education Clear, Balanced, and Accessible',
-    description: 'Because learning to sing shouldn\'t mean memorizing without understanding.',
+    type: 'website',
+    locale: 'en_US',
     url: 'https://gaayak.org',
     siteName: 'gaayak.org',
-    locale: 'en_US',
-    type: 'website',
+    title: 'gaayak.org | Where singers and creators grow together',
+    description: "Where singers and creators grow together",
+    images: [
+      {
+        url: '/images/logos/gaayak-logo-v0.png',
+        width: 1200,
+        height: 630,
+        alt: 'gaayak.org',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'gaayak.org — Making Indian Singing Education Clear, Balanced, and Accessible',
-    description: 'Because learning to sing shouldn\'t mean memorizing without understanding.',
+    title: 'gaayak.org | Where singers and creators grow together',
+    description: "Where singers and creators grow together",
+    images: ['/images/logos/gaayak-logo-v0.png'],
+    creator: '@gaayak.org',
   },
-}
+  icons: {
+    icon: '/images/logos/gaayak-logo-v0.png',
+    apple: '/images/logos/gaayak-logo-v0.png',
+  },
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </head>
+      <body>
+        <GoogleTagManager />
+        <InitColorSchemeScript defaultMode={DEFAULT_COLOR_MODE} attribute="data-mui-color-scheme" />
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <BrandingThemeProvider>
+            <PageViewTracker />
+            <AppHeader />
+            <Container
+              maxWidth="lg"
+              sx={{
+                px: '0 !important',
+                mx: 'auto',
+              }}
+            >
+              {children}
+            </Container>
+            <Footer />
+          </BrandingThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
-  )
+  );
 }
