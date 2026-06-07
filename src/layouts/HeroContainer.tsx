@@ -32,7 +32,7 @@ export default function HeroContainer(props: HeroContainerProps) {
           minHeight: { xs: 'auto', sm: 500 },
           height: 'calc(100vh - 120px)',
           maxHeight: { md: 700, xl: 850 },
-          borderBottomLeftRadius: 12,
+          borderBottomLeftRadius: 0,
           transition: 'max-height 0.3s',
           position: 'relative',
           overflow: 'hidden',
@@ -45,7 +45,7 @@ export default function HeroContainer(props: HeroContainerProps) {
           }),
         }),
         (theme) =>
-          theme.applyStyles('dark',{
+          theme.applyStyles('dark', {
             background: (theme.vars || theme).palette.primaryDark[900],
             borderColor: (theme.vars || theme).palette.primaryDark[700],
             ...(linearGradient && {

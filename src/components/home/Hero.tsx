@@ -13,6 +13,13 @@ export default function Hero() {
   const globalTheme = useTheme();
   const isMdUp = useMediaQuery(globalTheme.breakpoints.up('md'));
 
+  const heroImages = [
+    '/images/top-left-mic-with-waveform-on-monitor-2.webp',
+    '/images/top-right-tanpura-waveform-1.webp',
+    '/images/bottom-left-singer-side-profile-silhouette.webp',
+    '/images/bottom-right-mixing-console-timeline-view.webp',
+  ];
+
   return (
     <HeroContainer
       linearGradient
@@ -41,33 +48,48 @@ export default function Hero() {
       rightSx={{
         p: 4,
         ml: 2,
-        minWidth: 2000,
         overflow: 'hidden',
-        '& > div': {
-          width: 360,
-          display: 'inline-flex',
-          verticalAlign: 'top',
-          '&:nth-of-type(2)': {
-            width: { xl: 400 },
-          },
-        },
+        width: '100%',
       }}
       right={
         <React.Fragment>
           {isMdUp && (
-            <Stack spacing={3} useFlexGap>
-              {/* Placeholder for showcase components - you can add your own here */}
+            <Stack spacing={3} useFlexGap sx={{ width: '100%' }}>
               <Box
                 sx={{
-                  width: 360,
-                  height: 280,
-                  borderRadius: 2,
-                  bgcolor: 'background.paper',
-                  border: '1px solid',
-                  borderColor: 'divider',
+                  width: '100%',
+                  maxWidth: 760,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                  gap: 2,
                 }}
               >
-                {/* Add your showcase components here */}
+                {heroImages.map((src, index) => (
+                  <Box
+                    key={src}
+                    sx={{
+                      borderRadius: 3,
+                      overflow: 'hidden',
+                      aspectRatio: '1 / 1',
+                      position: 'relative',
+                      bgcolor: 'background.paper',
+                      boxShadow: (theme) =>
+                        `0 18px 40px ${theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.4)' : 'rgba(15, 23, 42, 0.12)'}`,
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={src}
+                      alt={`Hero image ${index + 1}`}
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                      }}
+                    />
+                  </Box>
+                ))}
               </Box>
             </Stack>
           )}
