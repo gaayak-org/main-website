@@ -1,5 +1,7 @@
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
+import AppHeader from "@/layouts/AppHeader";
+import Footer from "@/layouts/Footer";
 import BrandingThemeProvider from "@/theme/BrandingThemeProvider";
 import { DEFAULT_COLOR_MODE } from "@/theme/defaultColorMode";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
@@ -56,15 +58,17 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <BrandingThemeProvider>
             <PageViewTracker />
+            <AppHeader />
             <Container
               maxWidth="lg"
               sx={{
-                px: { xs: 2, sm: 4, md: 6 },
+                px: '0 !important',
                 mx: 'auto',
               }}
             >
               {children}
             </Container>
+            <Footer />
           </BrandingThemeProvider>
         </AppRouterCacheProvider>
       </body>

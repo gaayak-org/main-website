@@ -12,6 +12,7 @@ import * as React from 'react';
 export default function Hero() {
   const globalTheme = useTheme();
   const isMdUp = useMediaQuery(globalTheme.breakpoints.up('md'));
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   const heroImages = [
     '/images/top-left-mic-with-waveform-on-monitor-2.webp',
@@ -20,30 +21,93 @@ export default function Hero() {
     '/images/bottom-right-mixing-console-timeline-view.webp',
   ];
 
+  const [visible, setVisible] = React.useState(true);
+
+  React.useEffect(() => {
+    if (isMdUp) {
+      return undefined;
+    }
+
+    let timeoutId: number | undefined;
+    let fadeTimeoutId: number | undefined;
+
+    const cycle = () => {
+      timeoutId = window.setTimeout(() => {
+        setVisible(false);
+        fadeTimeoutId = window.setTimeout(() => {
+          setActiveIndex((prevActive) => (prevActive + 1) % heroImages.length);
+          setVisible(true);
+          cycle();
+        }, 400);
+      }, 4200);
+    };
+
+    cycle();
+
+    return () => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+      if (fadeTimeoutId !== undefined) {
+        window.clearTimeout(fadeTimeoutId);
+      }
+    };
+  }, [heroImages.length, isMdUp]);
+
+  const renderHeroText = () => (
+    <Box sx={{ textAlign: { xs: 'center', md: 'left' }, maxWidth: 500, mx: { xs: 'auto', md: 0 } }}>
+      <Typography
+        variant="h1"
+        sx={{ mb: 1, fontSize: { xs: '2.1rem', md: '3rem' }, lineHeight: 1.05 }}
+      >
+        <GradientText>Your gateway to mastering Indian singing</GradientText>
+        {' — and beyond.'}
+      </Typography>
+      <Typography sx={{ color: 'text.secondary', mb: 3 }}>
+        gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a place for creators to learn and collaborate.
+      </Typography>
+    </Box>
+  );
+
+  const smallScreenCarousel = (
+    <Box
+      sx={(theme) => ({
+        width: '100%',
+        borderRadius: 3,
+        overflow: 'hidden',
+        boxShadow: theme.shadows[5],
+        aspectRatio: '4 / 3',
+        bgcolor: 'background.paper',
+        position: 'relative',
+      })}
+    >
+      <Box
+        component="img"
+        src={heroImages[activeIndex]}
+        alt={`Hero carousel ${activeIndex + 1}`}
+        sx={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          display: 'block',
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 0.4s ease-in-out',
+        }}
+      />
+    </Box>
+  );
+
   return (
     <HeroContainer
       linearGradient
-      left={
-        <Box sx={{ textAlign: { xs: 'center', md: 'left' }, maxWidth: 500 }}>
-          <Typography
-            variant="h1"
-            sx={{ mb: 1, fontSize: { xs: '2.5rem', md: '3rem' } }}
-          >
-            <GradientText>Your gateway to mastering Indian singing</GradientText>
-            {' — and beyond.'}
-          </Typography>
-          <Typography sx={{ color: 'text.secondary', mb: 3 }}>
-            gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a place for creators to learn and collaborate.
-          </Typography>
-          {/* Contact Us CTA commented out for now */}
-          {/* <GetStartedButton
-            primaryLabel="Claim your spot"
-            primaryUrl="/contact-us"
-          />
-          <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5 }}>
-            First 500 members enjoy 6 months free.
-          </Typography> */}
-        </Box>
+      left={renderHeroText()}
+      small={
+        <Stack spacing={3} sx={{ width: '100%' }}>
+          {renderHeroText()}
+          {smallScreenCarousel}
+        </Stack>
       }
       rightSx={{
         p: 4,

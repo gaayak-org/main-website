@@ -11,6 +11,7 @@ interface HeroContainerProps {
   linearGradient?: boolean;
   right: React.ReactElement<unknown>;
   rightSx?: BoxProps['sx'];
+  small?: React.ReactElement<unknown>;
 }
 
 export default function HeroContainer(props: HeroContainerProps) {
@@ -19,6 +20,7 @@ export default function HeroContainer(props: HeroContainerProps) {
     linearGradient,
     right,
     rightSx,
+    small,
   } = props;
   const frame = React.useRef<HTMLDivElement>(null);
 
@@ -28,16 +30,21 @@ export default function HeroContainer(props: HeroContainerProps) {
       aria-hidden="true"
       sx={[
         (theme) => ({
-          minWidth: '50vw',
-          minHeight: { xs: 'auto', sm: 500 },
-          height: 'calc(100vh - 120px)',
+          width: '100%',
+          maxWidth: 920,
+          minHeight: { xs: 'auto', md: 520 },
+          height: '100%',
           maxHeight: { md: 700, xl: 850 },
-          borderBottomLeftRadius: 0,
+          borderBottomLeftRadius: 12,
           transition: 'max-height 0.3s',
           position: 'relative',
           overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+          px: (theme) => theme.spacing(4),
+          py: 0,
           borderLeft: '1px solid',
-          borderBottom: '1px solid',
           borderColor: (theme.vars || theme).palette.divider,
           ...(linearGradient && {
             background: `radial-gradient(farthest-corner circle at 0% 0%, ${(theme.vars || theme).palette.grey[50]
@@ -67,7 +74,7 @@ export default function HeroContainer(props: HeroContainerProps) {
     <Box sx={{ overflow: 'hidden' }}>
       <Container
         sx={{
-          pt: { xs: 8, md: 0 },
+          pt: 0,
           minHeight: { xs: 'auto', md: 500 },
           height: { md: 'calc(100vh - 120px)' },
           maxHeight: { md: 700, xl: 850 },
@@ -76,19 +83,19 @@ export default function HeroContainer(props: HeroContainerProps) {
       >
         <Grid
           container
-          sx={{ alignItems: 'center', flexWrap: 'nowrap', height: '100%', mx: 'auto' }}
+          sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'stretch', flexWrap: 'nowrap', height: '85%', mx: 'auto' }}
         >
           <Grid
-            sx={{ m: 'auto' }}
+            sx={{ display: 'flex', alignItems: 'center', height: '100%' }}
             size={{
-              md: 7,
+              md: 5,
               lg: 6,
             }}
           >
             {left}
           </Grid>
           <Grid
-            sx={{ maxHeight: '100%', display: { xs: 'none', md: 'initial' } }}
+            sx={{ height: '100%', maxHeight: '100%', display: { xs: 'none', md: 'initial' } }}
             size={{
               md: 5,
               lg: 6,
@@ -97,6 +104,9 @@ export default function HeroContainer(props: HeroContainerProps) {
             {renderRightWrapper()}
           </Grid>
         </Grid>
+        <Box sx={{ display: { xs: 'block', md: 'none' }, width: '100%', pt: 4, pb: 4, px: 2 }}>
+          {props.small}
+        </Box>
       </Container>
     </Box>
   );

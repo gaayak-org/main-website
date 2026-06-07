@@ -1,21 +1,16 @@
 import { Box } from "@mui/material";
 import React from 'react';
-import AppHeader from "./AppHeader";
-import Footer from "./Footer";
 
 interface MainLayoutProps {
-  isHomePage?: boolean;
   children: React.ReactNode;
 }
 
-export default function MainLayout({ isHomePage, children }: MainLayoutProps) {
+export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
-      <AppHeader isHomePage={isHomePage} />
       <Box flex={1} display="flex" flexDirection="column">
         {children}
       </Box>
-      <Footer />
     </Box>
   );
 }
