@@ -122,6 +122,55 @@ export default function Home() {
           </Box>
         </Container>
       </Box>
+
+      {/* Who's Building It */}
+      <Box
+        component="section"
+        sx={{
+          backgroundColor: alpha(theme.palette.info.main, 0.12),
+          borderTop: `1px solid ${theme.palette.divider}`,
+          py: { xs: 6, md: 10 },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Typography
+            variant="h2"
+            sx={{
+              color: 'text.primary',
+              fontSize: { xs: '1.75rem', md: '2.25rem' },
+              fontWeight: 700,
+              mb: 3,
+            }}
+          >
+            Who's Building It
+          </Typography>
+
+          <Typography sx={{ color: 'text.secondary', mb: 2, maxWidth: 860 }}>
+            I’m a software engineer who really should’ve been a music, dance and drama guy — but I made the mistake of doing well in academics.
+          </Typography>
+
+          <Typography sx={{ color: 'text.secondary', mb: 2, maxWidth: 860 }}>
+            So here I am, a late‑starter with zero music training growing up, trying to build the voice I always wanted.
+          </Typography>
+
+          <Typography sx={{ color: 'text.secondary', mb: 2, maxWidth: 860 }}>
+            Every day I run into the same challenges most late‑starters face — confusion, vague advice, and a lack of clear, scientific guidance. So I’m building my own structured routine using voice science, practical exercises, and a lot of trial and error… and sharing everything I learn along the way.
+          </Typography>
+
+          <Typography sx={{ color: 'text.secondary', maxWidth: 860 }}>
+            You can get to know more about me here:{' '}
+            <Typography
+              component="a"
+              href="https://iamankurj.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ color: 'text.secondary', textDecoration: 'underline', fontWeight: 600 }}
+            >
+              iamankurj.com
+            </Typography>
+          </Typography>
+        </Container>
+      </Box>
     </MainLayout>
   );
 }
