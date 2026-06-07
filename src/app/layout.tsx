@@ -1,5 +1,3 @@
-import GoogleTagManager from "@/components/analytics/GoogleTagManager";
-import PageViewTracker from "@/components/analytics/PageViewTracker";
 import AppHeader from "@/layouts/AppHeader";
 import Footer from "@/layouts/Footer";
 import BrandingThemeProvider from "@/theme/BrandingThemeProvider";
@@ -53,11 +51,9 @@ export default function RootLayout({
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
       <body>
-        <GoogleTagManager />
         <InitColorSchemeScript defaultMode={DEFAULT_COLOR_MODE} attribute="data-mui-color-scheme" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <BrandingThemeProvider>
-            <PageViewTracker />
             <AppHeader />
             <Container
               maxWidth="lg"
