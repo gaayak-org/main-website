@@ -1,6 +1,5 @@
 'use client';
 
-import GetStartedButton from '@/components/home/GetStartedButton';
 import GradientText from '@/components/typography/GradientText';
 import HeroContainer from '@/layouts/HeroContainer';
 import Box from '@mui/material/Box';
@@ -27,7 +26,7 @@ export default function Hero() {
             {' — and beyond.'}
           </Typography>
           <Typography sx={{ color: 'text.secondary', mb: 3 }}>
-            gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a hub for budding singers, producers, videographers, and songwriters to learn, connect, and collaborate on projects.
+            gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a place for creators to learn and collaborate.
           </Typography>
           {/* Contact Us CTA commented out for now */}
           {/* <GetStartedButton
