@@ -9,11 +9,13 @@ import { alpha, useTheme } from '@mui/material/styles';
 
 export default function Home() {
   const theme = useTheme();
+  const sectionTextColor = theme.palette.getContrastText(theme.palette.secondary.main);
 
   return (
     <MainLayout>
       <Hero />
 
+      {/* Why gaayak.org Exists */}
       <Box
         component="section"
         sx={{
@@ -32,7 +34,7 @@ export default function Home() {
               mb: 3,
             }}
           >
-            Why gaayak.org exists
+            Why gaayak.org Exists
           </Typography>
 
           <Typography sx={{ color: 'text.secondary', mb: 3, maxWidth: 860 }}>
@@ -49,7 +51,7 @@ export default function Home() {
           </Typography>
 
           <Typography sx={{ color: 'text.secondary', mb: 3, maxWidth: 860 }}>
-            There's a heavy focus on learning Swaras, Ragas, Bandish(es), Taals, ... but rarely told:
+            There's a heavy focus on learning Swaras, Ragas, Bandish(es), Taals, ... but we're rarely told:
           </Typography>
 
           <Box component="ul" sx={{ color: 'text.secondary', mb: 3, pl: 3, '& li': { mb: 1 } }}>
@@ -85,6 +87,39 @@ export default function Home() {
           <Typography sx={{ color: 'text.secondary', mt: 1, maxWidth: 860 }}>
             By breaking down Indian singing into clear, practical components, showing how to improve each one, and making structured, science-based training accessible to everyone. Not just the lucky few.
           </Typography>
+        </Container>
+      </Box>
+
+      {/* Who This Is For */}
+      <Box
+        component="section"
+        sx={{
+          backgroundColor: alpha(theme.palette.secondary.main, 0.12),
+          borderTop: `1px solid ${theme.palette.divider}`,
+          py: { xs: 6, md: 10 },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Typography
+            variant="h2"
+            sx={{
+              color: sectionTextColor,
+              fontSize: { xs: '1.75rem', md: '2.25rem' },
+              fontWeight: 700,
+              mb: 3,
+            }}
+          >
+            Who This Is For
+          </Typography>
+
+          <Box component="ul" sx={{ color: sectionTextColor, mb: 3, pl: 3, maxWidth: 860, '& li': { mb: 1 } }}>
+            <li>Late starters who always loved singing but never got the chance to learn it properly</li>
+            <li>Self‑taught singers who want clarity, structure, and science instead of vague advice</li>
+            <li>Bollywood/Hindi music lovers who want to sing in a modern playback style</li>
+            <li>People who want to understand their voice, not just memorize exercises</li>
+            <li>Creators — singers, producers, videographers — who want to collaborate and grow together</li>
+            <li>Anyone who wants honest, practical, no‑nonsense guidance instead of “just do riyaaz for 10 years”</li>
+          </Box>
         </Container>
       </Box>
     </MainLayout>
