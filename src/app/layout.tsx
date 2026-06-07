@@ -3,6 +3,7 @@ import PageViewTracker from "@/components/analytics/PageViewTracker";
 import BrandingThemeProvider from "@/theme/BrandingThemeProvider";
 import { DEFAULT_COLOR_MODE } from "@/theme/defaultColorMode";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import Container from '@mui/material/Container';
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import type { Metadata } from "next";
 
@@ -55,7 +56,15 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <BrandingThemeProvider>
             <PageViewTracker />
-            {children}
+            <Container
+              maxWidth="lg"
+              sx={{
+                px: { xs: 2, sm: 4, md: 6 },
+                mx: 'auto',
+              }}
+            >
+              {children}
+            </Container>
           </BrandingThemeProvider>
         </AppRouterCacheProvider>
       </body>
