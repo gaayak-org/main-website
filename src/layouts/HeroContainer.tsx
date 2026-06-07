@@ -105,7 +105,7 @@ export default function HeroContainer(props: HeroContainerProps) {
           </Grid>
         </Grid>
         <Box sx={{ display: { xs: 'block', md: 'none' }, width: '100%', pt: 4, pb: 4, px: 2 }}>
-          {props.small}
+          {small}
         </Box>
       </Container>
     </Box>
