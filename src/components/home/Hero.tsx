@@ -8,8 +8,13 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import * as React from 'react';
+import JoinTheJourneyButton from './JoinTheJourneyButton';
 
-export default function Hero() {
+interface HeroProps {
+  onJoinClick?: () => void;
+}
+
+export default function Hero({ onJoinClick }: HeroProps) {
   const globalTheme = useTheme();
   const isMdUp = useMediaQuery(globalTheme.breakpoints.up('md'));
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -60,11 +65,19 @@ export default function Hero() {
         variant="h1"
         sx={{ mb: 1, fontSize: { xs: '2.1rem', md: '3rem' }, lineHeight: 1.05 }}
       >
-        <GradientText>Your gateway to mastering Indian singing</GradientText>
-        {' — and beyond.'}
+        <GradientText>Your gateway to mastering Indian singing...</GradientText>
+        {' and beyond.'}
       </Typography>
       <Typography sx={{ color: 'text.secondary', mb: 3 }}>
-        gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing — and a place for creators to learn and collaborate.
+        gaayak.org aims to be a practical, scientific, and holistic resource for Indian singing... and a place for creators to learn and collaborate.
+      </Typography>
+      <JoinTheJourneyButton
+        primaryLabel="Join the Journey"
+        primaryOnClick={onJoinClick}
+      />
+      {/* Do not delete the commented code below */}
+      <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5, opacity: 0.7 }}>
+        I can only build gaayak.org if enough people find value in it. If this resonates with you, your signup genuinely helps me decide whether to keep going.
       </Typography>
     </Box>
   );
