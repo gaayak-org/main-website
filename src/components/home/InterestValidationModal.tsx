@@ -34,7 +34,7 @@ const TRAINING_BACKGROUNDS = [
 
 const SKILL_LEVELS = ['Beginner', 'Intermediate', 'Advanced', 'Not sure'];
 
-const AGE_GROUPS = ['Under 18', '18–24', '25–34', '35–44', '45–54', '55+'];
+const AGE_GROUPS = ['Under 18', '18-24', '25-34', '35-44', '45-54', '55+'];
 
 export default function InterestValidationModal({ open, onClose }: InterestValidationModalProps) {
   const [email, setEmail] = useState('');
@@ -63,7 +63,7 @@ export default function InterestValidationModal({ open, onClose }: InterestValid
     );
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!email) {
       setEmailError('Please enter your email address');
       return;
@@ -74,9 +74,43 @@ export default function InterestValidationModal({ open, onClose }: InterestValid
       return;
     }
 
-    // Track signup intent for product decisions.
-    // Placeholder: replace with your actual analytics or submission flow.
-    setSubmitted(true);
+    // Submit to Google Forms
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdrD28M_NcuvK_LdhiS230x93Du48JMbKM48cREhX0A_sfTFg/formResponse';
+    const EMAIL_ENTRY_ID = 'entry.1475293724';
+    const BIGGEST_CHALLENGE_ENTRY_ID = 'entry.253988511';
+    const SINGING_BACKGROUND_ENTRY_ID = 'entry.1132863463';
+    const CURRENT_LEVEL_ENTRY_ID = 'entry.783695172';
+    const AGE_GROUP_ENTRY_ID = 'entry.323643964';
+    // Reference: https://docs.google.com/forms/d/e/1FAIpQLSdrD28M_NcuvK_LdhiS230x93Du48JMbKM48cREhX0A_sfTFg/viewform?usp=pp_url&entry.1475293724=email@gmail.com&entry.253988511=Everything&entry.1132863463=Hindustani+classical&entry.1132863463=Bollywood/Playback+style&entry.1132863463=Mixed&entry.783695172=Intermediate&entry.323643964=35-44
+
+    const formData = new FormData();
+    formData.append(EMAIL_ENTRY_ID, email);
+    formData.append(BIGGEST_CHALLENGE_ENTRY_ID, painPoints);
+    trainingBackground.forEach((background) => formData.append(SINGING_BACKGROUND_ENTRY_ID, background));
+    // formData.append(SINGING_BACKGROUND_ENTRY_ID, trainingBackground.join(', '));
+    formData.append(CURRENT_LEVEL_ENTRY_ID, skillLevel);
+    formData.append(AGE_GROUP_ENTRY_ID, ageGroup);
+
+    try {
+      // Fire and forget - no-cors means we can't read the response
+      await fetch(GOOGLE_FORM_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors',
+      });
+
+      // Track successful signup
+      /* trackEvent('early_access_signup', {
+        intent: selectedIntent
+      }); */
+
+      // Only proceed to confirmation if fetch completed successfully
+      setSubmitted(true);
+    } catch (error) {
+      // Only catches network failures (offline, DNS, etc.)
+      console.error('Failed to submit early access signup:', error);
+      setEmailError('Network error. Please check your connection and try again.');
+    }
   };
 
   const handleClose = () => {
@@ -254,7 +288,7 @@ export default function InterestValidationModal({ open, onClose }: InterestValid
                 Join the Journey
               </Button>
               <Typography sx={{ color: 'text.secondary', fontSize: '0.75rem', textAlign: 'center' }}>
-                You can unsubscribe anytime.
+                You can opt out anytime.
               </Typography>
             </Box>
           </Box>
