@@ -10,17 +10,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "gaayak.org | Where singers and creators grow together",
   description: "Where singers and creators grow together",
-  metadataBase: new URL('https://gaayak.org'),
+  metadataBase: new URL('https://www.gaayak.org'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://gaayak.org',
+    url: 'https://www.gaayak.org',
     siteName: 'gaayak.org',
     title: 'gaayak.org | Where singers and creators grow together',
     description: "Where singers and creators grow together",
     images: [
       {
-        url: '/images/logos/gaayak-logo-v0.png',
+        url: '/images/gaayak-og-image.webp',
         width: 1200,
         height: 630,
         alt: 'gaayak.org',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'gaayak.org | Where singers and creators grow together',
     description: "Where singers and creators grow together",
-    images: ['/images/logos/gaayak-logo-v0.png'],
+    images: ['/images/gaayak-og-image.webp'],
     creator: '@gaayak.org',
   },
   icons: {
