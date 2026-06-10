@@ -87,7 +87,6 @@ export default function InterestValidationModal({ open, onClose }: InterestValid
     formData.append(EMAIL_ENTRY_ID, email);
     formData.append(BIGGEST_CHALLENGE_ENTRY_ID, painPoints);
     trainingBackground.forEach((background) => formData.append(SINGING_BACKGROUND_ENTRY_ID, background));
-    // formData.append(SINGING_BACKGROUND_ENTRY_ID, trainingBackground.join(', '));
     formData.append(CURRENT_LEVEL_ENTRY_ID, skillLevel);
     formData.append(AGE_GROUP_ENTRY_ID, ageGroup);
 
