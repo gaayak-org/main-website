@@ -5,21 +5,53 @@ import Box, { BoxProps } from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 
-interface GetStartedButtonsProps extends BoxProps {
+interface JoinTheJourneyButtonProps extends BoxProps {
   primaryLabel?: string;
-  primaryUrl: string;
+  primaryUrl?: string;
+  primaryOnClick?: () => void;
   secondaryLabel?: string;
   secondaryUrl?: string;
 }
 
-export default function GetStartedButton(props: GetStartedButtonsProps) {
+export default function JoinTheJourneyButton(props: JoinTheJourneyButtonProps) {
   const {
     primaryLabel = 'Get started',
     primaryUrl,
+    primaryOnClick,
     secondaryLabel,
     secondaryUrl,
     ...other
   } = props;
+
+  const primaryButton = primaryOnClick ? (
+    <Button
+      variant="contained"
+      onClick={primaryOnClick}
+      endIcon={<KeyboardArrowRightRounded />}
+      sx={{ flexShrink: 0 }}
+    >
+      {primaryLabel}
+    </Button>
+  ) : primaryUrl ? (
+    <Button
+      href={primaryUrl}
+      component={Link}
+      variant="contained"
+      endIcon={<KeyboardArrowRightRounded />}
+      sx={{ flexShrink: 0 }}
+    >
+      {primaryLabel}
+    </Button>
+  ) : (
+    <Button
+      variant="contained"
+      disabled
+      endIcon={<KeyboardArrowRightRounded />}
+      sx={{ flexShrink: 0 }}
+    >
+      {primaryLabel}
+    </Button>
+  );
 
   return (
     <Box
@@ -34,15 +66,7 @@ export default function GetStartedButton(props: GetStartedButtonsProps) {
         ...other.sx,
       }}
     >
-      <Button
-        href={primaryUrl}
-        component={Link}
-        variant="contained"
-        endIcon={<KeyboardArrowRightRounded />}
-        sx={{ flexShrink: 0 }}
-      >
-        {primaryLabel}
-      </Button>
+      {primaryButton}
       {secondaryLabel && secondaryUrl && (
         <Button
           href={secondaryUrl}

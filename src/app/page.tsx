@@ -1,19 +1,27 @@
 'use client';
 
 import Hero from '@/components/home/Hero';
+import InterestValidationModal from '@/components/home/InterestValidationModal';
+import JoinTheJourneyButton from '@/components/home/JoinTheJourneyButton';
 import MainLayout from '@/layouts/MainLayout';
+import { Divider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
+import { useState } from 'react';
 
 export default function Home() {
   const theme = useTheme();
   const sectionTextColor = theme.palette.getContrastText(theme.palette.secondary.main);
+  const [isInterestValidationModalOpen, setIsInterestValidationModalOpen] = useState(false);
+
+  const openInterestValidationModal = () => setIsInterestValidationModalOpen(true);
+  const closeInterestValidationModal = () => setIsInterestValidationModalOpen(false);
 
   return (
     <MainLayout>
-      <Hero />
+      <Hero onJoinClick={openInterestValidationModal} />
 
       {/* Why gaayak.org Exists */}
       <Box
@@ -157,6 +165,17 @@ export default function Home() {
             Every day I run into the same challenges most late‑starters face — confusion, vague advice, and a lack of clear, scientific guidance. So I’m building my own structured routine using voice science, practical exercises, and a lot of trial and error… and sharing everything I learn along the way.
           </Typography>
 
+          <JoinTheJourneyButton
+            primaryLabel="Join the Journey"
+            primaryOnClick={openInterestValidationModal}
+          />
+
+          <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5, opacity: 0.7 }}>
+            I can only build gaayak.org if enough people find value in it. If this resonates with you, your signup genuinely helps me decide whether to keep going.
+          </Typography>
+
+          <Divider sx={{ my: 2 }} />
+
           <Typography sx={{ color: 'text.secondary', maxWidth: 860 }}>
             You can get to know more about me here:{' '}
             <Typography
@@ -171,6 +190,8 @@ export default function Home() {
           </Typography>
         </Container>
       </Box>
+
+      <InterestValidationModal open={isInterestValidationModalOpen} onClose={closeInterestValidationModal} />
     </MainLayout>
   );
 }
