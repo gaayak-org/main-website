@@ -2,7 +2,6 @@
 
 import { AppLogo } from "@/components/AppLogo";
 import HeaderNavBar from "@/components/header/HeaderNavBar";
-import HeaderNavDropdown from "@/components/header/HeaderNavDropdown";
 // import ThemeModeToggle from "@/components/header/ThemeModeToggle";
 import { Box, Container, Stack } from "@mui/material";
 import GlobalStyles from "@mui/material/GlobalStyles";
@@ -49,9 +48,9 @@ export default function AppHeader({ isHomePage }: AppHeaderProps) {
           {/* Theme toggle commented out – dark mode only for now */}
           {/* <ThemeModeToggle /> */}
         </Stack>
-        <Box sx={{ display: { md: 'none' }, ml: 1 }}>
+        {/* <Box sx={{ display: { md: 'none' }, ml: 1 }}>
           <HeaderNavDropdown />
-        </Box>
+        </Box> */}
       </Container>
     </Header>
   );
