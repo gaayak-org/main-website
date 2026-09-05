@@ -154,15 +154,15 @@ export default function Home() {
           </Typography>
 
           <Typography sx={{ color: 'text.secondary', mb: 2, maxWidth: 860 }}>
-            I’m a software engineer who really should’ve been a music, dance and drama guy — but I made the mistake of doing well in academics.
+            I’m a software engineer with a deep passion for music and creative arts.
           </Typography>
 
           <Typography sx={{ color: 'text.secondary', mb: 2, maxWidth: 860 }}>
-            So here I am, a late‑starter with zero music training growing up, trying to build the voice I always wanted.
+            As a late-starter with no formal music background growing up, I faced the same hurdles many self-taught singers run into: vague advice, rigid traditional paths, and a lack of clear, structured guidance.
           </Typography>
 
           <Typography sx={{ color: 'text.secondary', mb: 2, maxWidth: 860 }}>
-            Every day I run into the same challenges most late‑starters face — confusion, vague advice, and a lack of clear, scientific guidance. So I’m building my own structured routine using voice science, practical exercises, and a lot of trial and error… and sharing everything I learn along the way.
+            To solve this, I’m applying an engineering mindset to vocal development, combining voice science, practical exercises, and structured routines to build the voice I’ve always wanted. I’m building gaayak.org to share those learnings and create a clear, science-based path for others doing the same.
           </Typography>
 
           <JoinTheJourneyButton
@@ -171,7 +171,7 @@ export default function Home() {
           />
 
           <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5, opacity: 0.7 }}>
-            I can only build gaayak.org if enough people find value in it. If this resonates with you, your signup genuinely helps me decide whether to keep going.
+            I’m building gaayak.org in the open. If this approach resonates with you, sign up to join the community and get early updates as new tools and guides drop.
           </Typography>
 
           <Divider sx={{ my: 2 }} />
