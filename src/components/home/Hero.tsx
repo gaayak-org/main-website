@@ -77,7 +77,7 @@ export default function Hero({ onJoinClick }: HeroProps) {
       />
       {/* Do not delete the commented code below */}
       <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1.5, opacity: 0.7 }}>
-        I can only build gaayak.org if enough people find value in it. If this resonates with you, your signup genuinely helps me decide whether to keep going.
+        I’m building gaayak.org in the open. If this approach resonates with you, sign up to join the community and get early updates as new tools and guides drop.
       </Typography>
     </Box>
   );
